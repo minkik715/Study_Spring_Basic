@@ -16,9 +16,9 @@ public class StatefulServiceTest {
         StatefulService statefulService2 = ac.getBean(StatefulService.class);
 
         //ThreadA: A 사용자가 10000원을 주문
+        int userBPrice = statefulService2.order("UserB", 20000);
         int userAPrice = statefulService1.order("UserA", 10000);
         //ThreadB: B 사용자가 20000원을 주문
-        int userBPrice = statefulService2.order("UserB", 20000);
 
         //ThreadA: 사용자 A가 주문 금액 조회
         Assertions.assertThat(userAPrice).isEqualTo(10000);
