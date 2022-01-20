@@ -2,8 +2,10 @@ package hello.core2.scan;
 
 import hello.core2.AutoAppConfig;
 import hello.core2.member.MemberService;
+import hello.core2.order.OrderService;
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Order;
 import org.junit.jupiter.api.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
@@ -18,6 +20,7 @@ public class AutoAppConfigTest {
 
         MemberService memberService = ac.getBean(MemberService.class);
         Assertions.assertThat(memberService).isInstanceOf(MemberService.class);
+        OrderService orderService = ac.getBean(OrderService.class);
     }
 
 
